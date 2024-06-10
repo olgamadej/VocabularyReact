@@ -1,0 +1,3 @@
+#Vacabulary is loaded from french.json in JSONs repository at olgamadej github.
+ #For now creation of the posts is done by that file in github, but this way the search does not work as it is not an api(?).
+ #To do: Upload french.json file into MongoDB Atlas (madejscimath) and create the search from scratch.
