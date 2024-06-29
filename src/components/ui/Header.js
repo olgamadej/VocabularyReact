@@ -4,7 +4,7 @@ import logo from "../../img/logo.png";
 const Header = () => {
   return (
     <header className="center">
-      <img src={logo} alt=""></img>
+      <h1 className="voc-search-title caveat-big">Vocabulary Search</h1>
     </header>
   );
 };

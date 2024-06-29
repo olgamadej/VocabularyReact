@@ -6,11 +6,33 @@
 
 html,
 body {
-  background: #000 url("img/bg.jpg") no-repeat center center/cover;
-  background-attachment: fixed;
-  height: 100vh;
-  color: #fff;
+  color: #191919;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Cursive Mild Font*/
+.yellowtail-regular {
+  font-family: "Yellowtail", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*Cursive Sharper Font */
+/* <uniquifier>: Use a unique and descriptive class name
+ <weight>: Use a value from 400 to 700 */
+
+.caveat-big {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.caveat-medium {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 a {
@@ -52,21 +74,7 @@ header img {
   justify-content: center;
 }
 
-.search {
-  height: 100px;
-}
-
-input[type="text"] {
-  display: block;
-  padding: 10px;
-  font-size: 20px;
-  border: 0;
-  border-radius: 5px;
-  width: 60%;
-  margin: auto;
-  outline: none;
-}
-
+/*Vocabulary Cards*/
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -81,7 +89,7 @@ input[type="text"] {
 }
 
 .card h1 {
-  font-size: 25px;
+  font-size: 28px;
   border-bottom: 1px #fff solid;
   padding-bottom: 10px;
   margin-bottom: 10px;
@@ -125,9 +133,34 @@ input[type="text"] {
   padding-bottom: 10px;
 }
 
+@media (max-width: 1280px){
+  html, body {
+    background: url("img/books-1280.jpg") no-repeat center center/cover;
+    background-attachment: fixed;
+  height: 100vh;
+  }
+}
+
+@media (max-width: 1980px){
+  html, body {
+    background:  url("img/books-1920.jpg") no-repeat center center/cover;
+    background-attachment: fixed;
+    height: 100vh;
+  }
+
+  .voc-search-title {
+    font-size: 40px;
+  }
+}
+
+
 @media (max-width: 800px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .voc-search-title {
+    font-size: 32px;
   }
 }
 
@@ -139,5 +172,9 @@ input[type="text"] {
     width: 100%;
     height: 300px;
     object-fit: contain;
+  }
+
+  .voc-search-title {
+    font-size: 24px;
   }
 }

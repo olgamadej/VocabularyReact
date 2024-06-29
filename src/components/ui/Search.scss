@@ -1,0 +1,94 @@
+@import "../../scss/config";
+
+.search {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 5px ;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+        -45deg, 
+        rgba($dark_brown, 0.2),
+        rgba($light_brown, 0.2)
+    );
+    z-index: 1000;
+    
+    form {
+        padding-bottom: 0.5rem;
+        position: relative;
+        height: 100%;
+
+        .accent-buttons {
+            padding-bottom: 0.5rem;
+            margin-top: 10px;
+
+            @include flex-center;
+    
+            .accent-button-outside {
+                height: 100%;
+                background-color: transparent; //added
+                margin-right: 5px;
+                border-radius: 5px;
+                z-index: -1;
+              
+            .accent-button {
+              font-size: 22px;
+              background-color: rgba($light_grey, 0.7);
+              border: 0px;
+              border-radius: 5px;
+              padding: 0px 10px 5px 5px;
+              cursor: pointer;
+
+              
+            }
+        }
+        }
+    
+        .form-control {
+            background: linear-gradient(
+                45deg,
+                rgba(white, 0.5),
+                rgba($light_grey, 0.02)
+            );
+        }
+
+        input[type="text"] {
+            display: block;
+            padding: 10px;
+            font-size: 20px;
+            border: 0;
+            border-radius: 5px;
+            width: 60%;
+            margin: auto;
+            outline: none;
+          }
+
+          .autocomplete-list {
+            display: block;
+            width: 60%;
+            margin: auto;
+            list-style-type: none;
+            margin: 0;
+            padding: 0 5px;
+            background-color: rgba(255, 255, 255, 0.684);
+            border-radius: 5px;
+            position: absolute;
+            max-height: 200px;
+            overflow-y:hidden;
+            z-index: 5000;
+          }
+          
+          .autocomplete-list li {
+            padding: 8px;
+            cursor: pointer;
+            z-index: 5001;
+          }
+          
+          .autocomplete-list li:hover {
+            background-color: #f0f0f0;
+          }
+    }
+    
+}
