@@ -3,6 +3,19 @@ $dark_brown: rgb(44, 32, 23);
 $light_brown: rgb(131, 107, 89);
 $light_grey: rgb(187, 180, 174);
 $dark_grey: rgb(43, 45, 74);
+$primary-brown: #2a2826;
+$primary-brown-light: #5d4b42;
+$text-dark: #1a1818;
+$bg-light: #887971;
+$bg-dark: rgb(87, 75, 68);
+$white: rgb(255, 255, 255);
+
+// From the light picture:
+$light-grey-blue: rgb(220, 212, 221);
+$light-beige: rgb(231,216,186);
+$beige: #c0a68b;
+$dark-violet-grey: #4b445c;
+$dark-grey-brown: #473a3d;
 
 // Mixins
 @mixin easeOut {

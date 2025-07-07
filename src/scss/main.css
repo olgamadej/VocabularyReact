@@ -1,0 +1,117 @@
+.search { /* Safari */
+  position: sticky;
+  top: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(-45deg, rgba(44, 32, 23, 0.2), rgba(131, 107, 89, 0.2));
+  z-index: 1000;
+}
+.search form {
+  padding-bottom: 0.5rem;
+  position: relative;
+  height: 100%;
+}
+.search form .accent-buttons {
+  padding-bottom: 0.5rem;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search form .accent-buttons .accent-button-outside {
+  height: 100%;
+  background-color: transparent;
+  margin-right: 5px;
+  border-radius: 5px;
+  z-index: -1;
+}
+.search form .accent-buttons .accent-button-outside .accent-button {
+  font-size: 22px;
+  background-color: rgba(187, 180, 174, 0.7);
+  border: 0px;
+  border-radius: 5px;
+  padding: 0px 10px 5px 5px;
+  cursor: pointer;
+}
+.search form .form-control {
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(187, 180, 174, 0.02));
+}
+.search form input[type=text] {
+  display: block;
+  padding: 10px;
+  font-size: 20px;
+  border: 0;
+  border-radius: 5px;
+  width: 60%;
+  margin: auto;
+  outline: none;
+}
+.search form .autocomplete-list {
+  display: block;
+  width: 60%;
+  margin: auto;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 5px;
+  background-color: rgba(255, 255, 255, 0.684);
+  border-radius: 5px;
+  position: absolute;
+  max-height: 200px;
+  overflow-y: hidden;
+  z-index: 5000;
+}
+.search form .autocomplete-list li {
+  padding: 8px;
+  cursor: pointer;
+  z-index: 5001;
+}
+.search form .autocomplete-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.header {
+  height: 3.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  margin: 0;
+}
+.header .menu {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.header .buttons {
+  display: flex;
+  gap: 3rem;
+  margin-top: 0;
+}
+.header .menu-btn {
+  text-align: center;
+  color: rgb(231, 216, 186);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-in-out;
+}
+.header .menu-btn:hover {
+  color: rgb(187, 180, 174);
+  scale: 1.15;
+}
+
+@media (min-width: 640px) {
+  .header {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .header .buttons {
+    width: auto;
+    margin-top: 0;
+  }
+  .header .menu-btn {
+    flex: none;
+  }
+}/*# sourceMappingURL=main.css.map */

@@ -6,22 +6,42 @@
 
 html,
 body {
-  color: #191919;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: rgb(231,216,186);
+  font-family: "Cormorant", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 100vh;
 }
 
-/*Cursive Mild Font*/
+.container {
+  font-family: "Cormorant", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+/*Cursive Mild Font
 .yellowtail-regular {
   font-family: "Yellowtail", cursive;
   font-weight: 400;
   font-style: normal;
-}
+}*/
 
 /*Cursive Sharper Font */
 /* <uniquifier>: Use a unique and descriptive class name
  <weight>: Use a value from 400 to 700 */
 
-.caveat-big {
+/*.caveat-big {
   font-family: "Caveat", cursive;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -33,7 +53,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-}
+}*/
 
 a {
   text-decoration: none;
@@ -42,13 +62,21 @@ a {
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 0 20px;
+  padding: 0;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* MainTitle left, ContentMenu right */
+  align-items: center; /* Vertically align if needed */
+  gap: 10rem;
+  width: 100%;
 }
 
 .btn {
   display: inline-block;
   color: #fff;
-  background-color: #3fb573;
   font-size: 1em;
   text-align: center;
   padding: 10px 15px;
@@ -56,23 +84,6 @@ a {
   margin: 10px 0;
 }
 
-header {
-  height: 100px;
-  margin: 25px;
-}
-
-header img {
-  width: 200px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-  backdrop-filter: blur(3px);
-}
-
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 /*Vocabulary Cards*/
 .cards {
@@ -133,19 +144,47 @@ header img {
   padding-bottom: 10px;
 }
 
+
+@media (max-width: 880px){
+  html, body {
+  }
+
+  body {
+    background: url("img/dark-books.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+  
+  }
+}
+
+
 @media (max-width: 1280px){
   html, body {
-    background: url("img/books-1280.jpg") no-repeat center center/cover;
+  }
+
+  body {
+    background: url("img/books-1280.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     background-attachment: fixed;
-  height: 100vh;
+  
   }
 }
 
 @media (max-width: 1980px){
   html, body {
-    background:  url("img/books-1920.jpg") no-repeat center center/cover;
+  }
+
+  body {
+    background:  url("img/books-1280.png");    
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     background-attachment: fixed;
-    height: 100vh;
+  
   }
 
   .voc-search-title {
