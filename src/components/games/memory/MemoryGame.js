@@ -31,16 +31,35 @@ function MemoryGame() {
     }, [subject, level, words]);
 
     function startNewGame() {
-        const filtered = words.filter((w) => w.subject === subject);
+        // const filtered = words.filter((w) => w.subject === subject);  //tutaj trzeba zmienic , zeby subject === w.subject ktore jest zawarte w liscie subjektow, jako ze kazde wyrazenie jest przypisane do kilku tematow (lista)
+        const filtered = words.filter((w) =>
+            Array.isArray()
+        )
         const totalCards = gridSize * gridSize;
         const selectedPairs = shuffle(filtered).slice(0, totalCards / 2);
 
-        const cardList = shuffle([...selectedPairs, ...selectedPairs]).map(
-            (item, index) => ({
-                id: index,
-                content: item.french_expression || item.english_expression,
-                matched: false,
-            })
+        // We create one card with a French expression and one card with an English one
+        const cardList = shuffle(
+            selectedPairs.flatMap((item, index) => [ //co robi flatMap?
+                { 
+                    id: index * 2,
+                    content: item.french_expression,
+                    pairId: index,
+                    matched: false,
+                },
+                {
+                    id: index * 2 + 1,
+                    content: item.english_expression,
+                    pairId: index,
+                    matched: false,
+                }
+            ])            
+            //[...selectedPairs, ...selectedPairs]).map(
+            //(item, index) => ({
+            //    id: index,
+            //    content: item.french_expression || item.english_expression,
+            //    matched: false,
+            //})
         );
 
         setBoard(cardList);
@@ -60,7 +79,7 @@ function MemoryGame() {
                 board.find((c) => c.id === id)
             );
 
-            if (first.content === second.content) { //tutaj chyba id ma sie zgadzac, bo nie ma czegos takiego jak kontent (chyba, ze to wpudowana cecha js). 
+            if (first.pairId === second.pairId) {  
                 setMatched([...matched, first.id, second.id]);
             }
 
@@ -126,7 +145,7 @@ function MemoryGame() {
                     >
                         <div className="card-inner">
                             <div className="card-front"></div>
-                            <div className="card-back">{card.centent}</div>
+                            <div className="card-back">{card.content}</div>
                         </div>
                     </div>
                 ))}
