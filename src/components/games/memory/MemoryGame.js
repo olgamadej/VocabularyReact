@@ -11,13 +11,14 @@ function MemoryGame() {
   const [matched, setMatched] = useState([]);
   const [gameOver, setGameOver] = useState(false);
 
-  let gridSize = 2 + level; // Level 1 = 3x3, Level 2 = 4x4, etc.
+  let gridSize = 1 + level;
   let totalCards = gridSize * gridSize; // 3x3 will make an uneven number of cards, so:
 
+  /* A fix for even number of cards
   if (totalCards % 2 !== 0) {
     gridSize += 1;
     totalCards = gridSize * gridSize;
-  }
+  }*/
 
   useEffect(() => {
     const fetchWords = async () => {
@@ -38,7 +39,7 @@ function MemoryGame() {
 
   function startNewGame() {
     // const filtered = words.filter((w) => w.subject === subject);  //tutaj trzeba zmienic , zeby subject === w.subject ktore jest zawarte w liscie subjektow, jako ze kazde wyrazenie jest przypisane do kilku tematow (lista)
-    const filtered = words.filter((w) => Array.isArray());
+    const filtered = words.filter((w) => w.subjects?.includes(subject));
 
     // Check if there are enough unique words for this level
     if (filtered.length < totalCards / 2) {
@@ -77,6 +78,8 @@ function MemoryGame() {
       //    matched: false,
       //})
     );
+
+    //    console.log("CardList", cardList.map(c => c.content));
 
     setBoard(cardList);
     setFlipped([]);
@@ -122,7 +125,7 @@ function MemoryGame() {
     // The previous biased shuffle algorithm: return [...array].sort(() => Math.random() - 0.5);
     //
     // Fisher-Yates Shuffle
-    const copy = [...aray];
+    const copy = [...array];
     for (let i = copy.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [copy[i], copy[j]] = [copy[j], copy[i]]; // swap
@@ -143,11 +146,15 @@ function MemoryGame() {
             // how does onChange work
           }
           <option value="">--Select--</option>
-          {[...new Set(words.map((w) => w.subject))].map((subj) => (
-            <option key={subj} value={subj}>
-              {subj}
-            </option>
-          ))}
+          {[...new Set(words.flatMap((w) => w.subjects))].map(
+            (
+              subj //What is the difference between map and flatMap??
+            ) => (
+              <option key={subj} value={subj}>
+                {subj}
+              </option>
+            )
+          )}
         </select>
 
         {subject && (
@@ -174,9 +181,9 @@ function MemoryGame() {
             }`}
             onClick={() => handleFlip(card)}
           >
-            <div className="card-inner">
-              <div className="card-front"></div>
-              <div className="card-back">{card.content}</div>
+            <div className="m-card-inner">
+              <div className="m-card-front"></div>
+              <div className="m-card-back">{card.content}</div>
             </div>
           </div>
         ))}
