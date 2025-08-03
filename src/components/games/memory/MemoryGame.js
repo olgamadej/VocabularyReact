@@ -103,7 +103,7 @@ function MemoryGame() {
         setMatched([...matched, first.id, second.id]);
       }
 
-      setTimeout(() => setFlipped([]), 800);
+      setTimeout(() => setFlipped([]), 2200);
     }
   };
 
@@ -136,33 +136,36 @@ function MemoryGame() {
 
   return (
     <div className="memory-game">
-      <h2>Memory Game</h2>
+      <div className="memory-header">
+        <h2 className="memory-title">Memory Game</h2>
 
-      <div className="controls">
-        <label>Choose Subject:</label>
-        <select value={subject} onChange={(e) => setSubject(e.target.value)}>
-          {" "}
-          {
-            // how does onChange work
-          }
-          <option value="">--Select--</option>
-          {[...new Set(words.flatMap((w) => w.subjects))].map(
-            (
-              subj //What is the difference between map and flatMap??
-            ) => (
-              <option key={subj} value={subj}>
-                {subj}
-              </option>
-            )
+        <div className="controls">
+          <label className="subject-label">Choose Subject:</label>
+          <select
+            className="subject-select"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          >
+            {" "}
+            <option value="">--Select--</option>
+            {[...new Set(words.flatMap((w) => w.subjects))].map(
+              (
+                subj //What is the difference between map and flatMap??
+              ) => (
+                <option key={subj} value={subj}>
+                  {subj}
+                </option>
+              )
+            )}
+          </select>
+
+          {subject && (
+            <>
+              <p>Level: {level}</p>
+              <button onClick={() => startNewGame()}>Restart Level</button>
+            </>
           )}
-        </select>
-
-        {subject && (
-          <>
-            <p>Level: {level}</p>
-            <button onClick={() => startNewGame()}>Restart Level</button>
-          </>
-        )}
+        </div>
       </div>
 
       <div

@@ -5,6 +5,7 @@ import MemoryGame from "./components/games/memory/MemoryGame";
 import Header from "./components/ui/Header";
 import MainTitle from "./components/ui/MainTitle";
 import ContentMenu from "./components/ui/ContentMenu";
+import GamesSection from "./components/ui/GamesSection";
 import FlashcardGrid from "./components/flashcards/FlashcardGrid";
 import Search from "./components/ui/Search";
 import "./App.css";
@@ -62,6 +63,9 @@ function App() {
                     <MainTitle />
                   </div>
                   <ContentMenu />
+                </div>
+                <div>
+                  <GamesSection />
                 </div>
                 <h1 className="voc-search-title caveat-big">
                   Vocabulary Search
