@@ -22,5 +22,14 @@ const paymentMethods = [
 ];
 
 const BookingSection = () => {
-    const [currentMonth, setCurrentMonth]
+    const [currentMonth, setCurrentMonth] = useState(new Date());
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedTime, setSelectedTime] = useState(null);
+    const [selectedType, setSelectedType] = useState(null);
+    const [selectedPayment, setSelectedPayment] = useState(null);
+
+    const monthStart = startOfMonth(currentMonth);
+    const monthEnd = endOfMonth(currentMonth);
+    const days = eachDayOfInterval({start: monthStart, end: monthEnd});
+    
 }
